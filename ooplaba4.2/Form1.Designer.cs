@@ -53,6 +53,7 @@ namespace ooplaba4._2
             this.textBoxA.Name = "textBoxA";
             this.textBoxA.Size = new System.Drawing.Size(120, 22);
             this.textBoxA.TabIndex = 0;
+            this.textBoxA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxA_KeyDown);
             // 
             // textBoxB
             // 
@@ -60,6 +61,7 @@ namespace ooplaba4._2
             this.textBoxB.Name = "textBoxB";
             this.textBoxB.Size = new System.Drawing.Size(120, 22);
             this.textBoxB.TabIndex = 1;
+            this.textBoxB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxB_KeyDown);
             // 
             // textBoxC
             // 
@@ -67,6 +69,7 @@ namespace ooplaba4._2
             this.textBoxC.Name = "textBoxC";
             this.textBoxC.Size = new System.Drawing.Size(120, 22);
             this.textBoxC.TabIndex = 2;
+            this.textBoxC.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxC_KeyDown);
             // 
             // numericUpDownA
             // 
@@ -74,6 +77,7 @@ namespace ooplaba4._2
             this.numericUpDownA.Name = "numericUpDownA";
             this.numericUpDownA.Size = new System.Drawing.Size(120, 22);
             this.numericUpDownA.TabIndex = 3;
+            this.numericUpDownA.ValueChanged += new System.EventHandler(this.numericUpDownA_ValueChanged);
             // 
             // numericUpDownB
             // 
@@ -81,7 +85,7 @@ namespace ooplaba4._2
             this.numericUpDownB.Name = "numericUpDownB";
             this.numericUpDownB.Size = new System.Drawing.Size(120, 22);
             this.numericUpDownB.TabIndex = 4;
-            this.numericUpDownB.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            this.numericUpDownB.ValueChanged += new System.EventHandler(this.numericUpDownB_ValueChanged);
             // 
             // numericUpDownC
             // 
@@ -89,27 +93,34 @@ namespace ooplaba4._2
             this.numericUpDownC.Name = "numericUpDownC";
             this.numericUpDownC.Size = new System.Drawing.Size(120, 22);
             this.numericUpDownC.TabIndex = 5;
+            this.numericUpDownC.ValueChanged += new System.EventHandler(this.numericUpDownC_ValueChanged);
             // 
             // trackBarA
             // 
             this.trackBarA.Location = new System.Drawing.Point(62, 265);
+            this.trackBarA.Maximum = 100;
             this.trackBarA.Name = "trackBarA";
             this.trackBarA.Size = new System.Drawing.Size(120, 56);
             this.trackBarA.TabIndex = 6;
+            this.trackBarA.ValueChanged += new System.EventHandler(this.trackBarA_ValueChanged);
             // 
             // trackBarB
             // 
             this.trackBarB.Location = new System.Drawing.Point(328, 265);
+            this.trackBarB.Maximum = 100;
             this.trackBarB.Name = "trackBarB";
             this.trackBarB.Size = new System.Drawing.Size(120, 56);
             this.trackBarB.TabIndex = 7;
+            this.trackBarB.ValueChanged += new System.EventHandler(this.trackBarB_ValueChanged);
             // 
             // trackBarC
             // 
             this.trackBarC.Location = new System.Drawing.Point(566, 265);
+            this.trackBarC.Maximum = 100;
             this.trackBarC.Name = "trackBarC";
             this.trackBarC.Size = new System.Drawing.Size(120, 56);
             this.trackBarC.TabIndex = 8;
+            this.trackBarC.ValueChanged += new System.EventHandler(this.trackBarC_ValueChanged);
             // 
             // label1
             // 
@@ -138,6 +149,7 @@ namespace ooplaba4._2
             this.Controls.Add(this.textBoxA);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownC)).EndInit();
