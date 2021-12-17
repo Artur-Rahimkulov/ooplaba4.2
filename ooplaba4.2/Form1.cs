@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ooplaba4._2.Properties;
 
 namespace ooplaba4._2
 {
@@ -15,8 +16,9 @@ namespace ooplaba4._2
         public Form1()
         {
             InitializeComponent();
-            abc = new Model(50, 60, 70);
+            abc = new Model(Int32.Parse(Settings.Default["savedAC"].ToString())%100, Int32.Parse(Settings.Default["savedAC"].ToString()) % 100, Int32.Parse(Settings.Default["savedAC"].ToString()) / 100);
             abc.observers += new System.EventHandler(this.UpdateFromModel);
+            abc.SetValue(Int32.Parse(Settings.Default["savedAC"].ToString()) % 100, 1);
         }
         Model abc;
          
@@ -65,12 +67,12 @@ namespace ooplaba4._2
 
         private void trackBarA_ValueChanged(object sender, EventArgs e)
         {
-            abc.SetValue(int.Parse(trackBarA.Value.ToString()), 0);
+            abc.SetValue(int.Parse(trackBarA.Value.ToString()), 0);//A
         }
 
         private void trackBarB_ValueChanged(object sender, EventArgs e)
         {
-            abc.SetValue(int.Parse(trackBarB.Value.ToString()), 1);
+            abc.SetValue(int.Parse(trackBarB.Value.ToString()), 1);//B
 
         }
 
@@ -90,7 +92,10 @@ namespace ooplaba4._2
             numericUpDownA.Value = Decimal.Parse(abc.GetValue(0).ToString());
             numericUpDownB.Value = Decimal.Parse(abc.GetValue(1).ToString());
             numericUpDownC.Value = Decimal.Parse(abc.GetValue(2).ToString());
-           
+            Settings.Default["savedAC"] = abc.GetValue(0) + abc.GetValue(2) * 100;
+            Settings.Default.Save();
+
+
         }
         class Model
         {
